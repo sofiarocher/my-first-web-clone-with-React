@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import Menu from './Menu';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
 import HeaderBlocked from './HeaderBlocked';
 import Login from './Login';
 import { useDispatch, useSelector } from 'react-redux';
@@ -33,21 +33,37 @@ function App() {
 
   return (
     <Router>
-      <div className='app'>
-        <React.Fragment> {/* its used for that element that stays on every page */}
-                <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
-                {isMenuOpen && <Menu />}
-          <Routes>
-            <Route path="/" exact element={<HeaderBlocked />} />
-            <Route exact path="/login" element={<Login/>}/>
-              {/* {{user ? Navigate ('/teslaaccount') : <Login/> }} */}
-            <Route exact path="/signup" element={<SignUp/>}/>
-            {/* {{!user ? Navigate ('/login') : {<TeslaAccount isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />} {isMenuOpen && <Menu />}} */}
-            <Route exact path="/teslaaccount" element={<TeslaAccount/>}/>
-          </Routes>
-        </React.Fragment>
-      </div>
-    </Router>
+    <div className='app'>
+      <Routes>
+        <Route exact path="/">
+          <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+          {isMenuOpen ? <Menu /> : null}
+          <HeaderBlocked />
+        </Route>
+        
+        <Route exact path='/login'>
+          {user ? <Navigate to='/teslaaccount' /> : <Login />}
+        </Route>
+        
+        <Route exact path='/signup' element={SignUp} />
+        
+        <Route exact path='/teslaaccount'>
+          {!user ? (
+            <Navigate to='/login' />
+          ) : (
+            <>
+              <TeslaAccount
+                isMenuOpen={isMenuOpen}
+                setIsMenuOpen={setIsMenuOpen}
+              />
+              {isMenuOpen && <Menu />}
+            </>
+          )}
+        </Route>
+
+      </Routes>
+    </div>
+  </Router>
   );
 }
 
