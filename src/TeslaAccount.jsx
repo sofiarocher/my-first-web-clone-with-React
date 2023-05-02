@@ -2,14 +2,22 @@ import React from 'react'
 import MenuIcon from "@material-ui/icons/Menu"
 import CloseIcon from "@material-ui/icons/Close"
 import "./TeslaAccount.css"
-import { useSelector } from 'react-redux'
-import { selectUser } from './features/userSlice'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout, selectUser } from './features/userSlice'
+import { Link, useNavigate } from 'react-router-dom'
 import Car from "./Car"
+import { auth } from './Firebase'
 
 function TeslaAccount({setIsMenuOpen, isMenuOpen}) {
     const user= useSelector(selectUser)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const logoutOfApp = () => {
+        auth.signOut().then(() => {
+            dispatch(logout())
+            navigate("/")
+        }).catch((error) => alert(error.message))
     } 
 
   return (
