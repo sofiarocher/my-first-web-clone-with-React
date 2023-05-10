@@ -59,7 +59,7 @@
 }
 
 .headerBlock__actions > button {
-    cursor: pointer;
+    cursor: not-allowed;
     border: none;
     width: 260px;
     padding-top: 12px;
@@ -74,6 +74,7 @@
     background-color: #393c41;
     color: white;
     opacity: 0.9;
+
 }
 
 .headerBlock__buttonSecondary {

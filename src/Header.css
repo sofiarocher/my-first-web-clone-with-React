@@ -21,6 +21,11 @@
 .header__links {
     display: flex;
     gap: 15px; /* margin only between the childrens */
+    cursor: not-allowed;
+}
+
+.header__links > a {
+    cursor: not-allowed;
 }
 
 .header__links > a,
@@ -51,4 +56,10 @@
 
 .header__link--hidden {
     visibility: hidden;
+}
+
+@media (max-width: 1080px) {
+    .header__links > a {
+       display: none;
+    }
 }

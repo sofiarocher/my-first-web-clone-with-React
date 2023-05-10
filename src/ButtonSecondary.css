@@ -7,7 +7,7 @@
     text-transform: uppercase;
     color: #171a20;
     font-weight: 600;
-    cursor: pointer;
+    cursor: not-allowed;
     transition: all 0.2 ease-in-out;
     outline: none;
 }

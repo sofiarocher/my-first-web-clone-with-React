@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import "./Login.css"
 import LanguageIcon from '@material-ui/icons/Language';
 import ButtonPrimary from './ButtonPrimary';
@@ -13,19 +13,19 @@ function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const history = useHistory()
 
  const signIn = (e) => {
     e.preventDefault()
     auth.signInWithEmailAndPassword(email, password).then((userAuth) => {
       dispatch(
         login({
-        email: userAuth.user.email,
-        uid: userAuth.user.uid,
-        displayName: userAuth.user.displayName
+          email: userAuth.user.email,
+          uid: userAuth.user.uid,
+          displayName: userAuth.user.displayName
       })
       )
-      navigate("/teslaaccount") /* this pushes to another page */
+      history.push("/teslaaccount") /* this pushes to another page */
     }).catch((error) => alert(error.message))
  }
 
@@ -33,7 +33,7 @@ function Login() {
     <div className="login">
         <div className="login__header">
             <div className="login__logo">
-                <Link>
+                <Link to="/">
                     <img src="https://assets.website-files.com/5e8fceb1c9af5c3915ec97a0/5ec2f037975ed372da9f6286_Tesla-Logo-PNG-HD.png" alt="" />
                 </Link>
             </div>

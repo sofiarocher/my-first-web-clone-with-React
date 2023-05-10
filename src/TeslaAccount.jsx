@@ -4,19 +4,19 @@ import CloseIcon from "@material-ui/icons/Close"
 import "./TeslaAccount.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { logout, selectUser } from './features/userSlice'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import Car from "./Car"
 import { auth } from './Firebase'
 
 function TeslaAccount({setIsMenuOpen, isMenuOpen}) {
     const user= useSelector(selectUser)
     const dispatch = useDispatch()
-    const navigate = useNavigate()
+    const history = useHistory()
 
     const logoutOfApp = () => {
         auth.signOut().then(() => {
             dispatch(logout())
-            navigate("/")
+            history.push("/")
         }).catch((error) => alert(error.message))
     } 
 
@@ -37,7 +37,7 @@ function TeslaAccount({setIsMenuOpen, isMenuOpen}) {
                 <Link to="/teslaaccount"> Solar Panels</Link>
                 <Link to="/teslaaccount"> Shop</Link>
                 <Link to="/teslaaccount"> Tesla Account</Link>
-                <Link onClick={logoutOfApp} > Log out</Link>
+                <Link onClick={logoutOfApp} to="/"> Log out</Link>
                 <div className="teslaAccount__menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                     {isMenuOpen ? <CloseIcon className='teslaAccount__closeMenu'/> : <MenuIcon/> }
                 </div>
@@ -48,10 +48,10 @@ function TeslaAccount({setIsMenuOpen, isMenuOpen}) {
                 <h4>{user?.displayName + "'s"} Tesla </h4>
             </div>
             <div className="teslaAccount__infoRight">
-                <Link>Home</Link>
-                <Link>Account</Link>
-                <Link>History</Link>
-                <Link onClick={logoutOfApp} >Sign Out</Link>
+                <Link to="/">Home</Link>
+                <Link to="/teslaaccount">Account</Link>
+                <Link to="/teslaaccount">History</Link>
+                <Link to="/" onClick={logoutOfApp}>Sign Out</Link>
             </div>
         </div>
         <div className="teslaAccount__car">

@@ -6,7 +6,7 @@
 
 .car__image > img {
     object-fit: contain;
-    width: 1000px;
+    width: 100%;
 }
 
 .car__model {
@@ -40,4 +40,31 @@
 .car__info > span {
     color: #3e6be2;
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .car__info {
+        visibility: hidden;
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .car__model {
+        font-size: 24px;      
+    }
+    .car__actions > button {
+        width: 180px;
+    }
+}
+
+@media (max-width: 468px) {
+    .car__model {
+        font-size: 24px;    
+        padding-top: 52px;  
+    }
+    .car__actions > button {
+        width: 180px;
+        margin-top: 24px;
+    }
 }

@@ -80,3 +80,21 @@
     gap: 30px;
     padding-bottom: 40px;
 }
+
+@media (max-width: 1115px) {
+    .teslaAccount__links > :not(:last-child) {
+        display: none;
+      }
+}
+
+@media (max-width: 768px) {
+    .teslaAccount__infoRight > :not(:last-child) {
+        display: none;
+      }
+}
+  
+@media (max-width: 468px) {
+    .teslaAccount__person > h4 {
+        font-size: 18px;
+    }
+}

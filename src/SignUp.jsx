@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./SignUp.css"
 import { useDispatch } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory} from 'react-router-dom';
 import LanguageIcon from '@material-ui/icons/Language';
 import ButtonPrimary from './ButtonPrimary';
 import ButtonSecondary from './ButtonSecondary';
@@ -14,7 +14,7 @@ function SignUp() {
     const [fName, setFName] = useState("")
     const [lName, setLName] = useState("")
     const dispatch = useDispatch()
-    const navigate = useNavigate()
+    const history = useHistory()
 
     const signUp = (e) => {
       e.preventDefault() /* this is for when i refresh the page it doesnt log out */
@@ -32,7 +32,7 @@ function SignUp() {
             uid: userAuth.user.uid,
             displayName: fName,
           }))
-          navigate("/teslaaccount")
+          history.push("/teslaaccount")
         })
       }).catch((error) => alert(error.message))
     }

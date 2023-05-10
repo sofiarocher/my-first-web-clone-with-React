@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import Menu from './Menu';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import HeaderBlocked from './HeaderBlocked';
 import Login from './Login';
 import { useDispatch, useSelector } from 'react-redux';
@@ -19,11 +19,13 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((userAuth) => {
       if (userAuth) {
-        dispatch(login({
-          email: userAuth.user.email,
-          uid: userAuth.user.uid,
-          displayNamer: userAuth.displayName,
-        }))
+        dispatch(
+          login({
+            email: userAuth.email,
+            uid: userAuth.uid,
+            displayName: userAuth.displayName,
+          })
+        )
       } else {
         dispatch(logout())
       }
@@ -34,22 +36,21 @@ function App() {
   return (
     <Router>
     <div className='app'>
-      <Routes>
-        <Route exact path="/">
+      <Switch>
+        <Route exact path='/'>
           <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-          {isMenuOpen ? <Menu /> : null}
+          {isMenuOpen && <Menu />}
           <HeaderBlocked />
         </Route>
-        
         <Route exact path='/login'>
-          {user ? <Navigate to='/teslaaccount' /> : <Login />}
+          {user ? <Redirect to='/teslaaccount' /> : <Login />}
         </Route>
-        
-        <Route exact path='/signup' element={SignUp} />
-        
+        <Route exact path='/signup'>
+          <SignUp />
+        </Route>
         <Route exact path='/teslaaccount'>
           {!user ? (
-            <Navigate to='/login' />
+            <Redirect to='/login' />
           ) : (
             <>
               <TeslaAccount
@@ -60,8 +61,7 @@ function App() {
             </>
           )}
         </Route>
-
-      </Routes>
+      </Switch>
     </div>
   </Router>
   );
