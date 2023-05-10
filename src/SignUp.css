@@ -100,3 +100,88 @@
     font-weight: 500;
     color: #5c5e62;
   }
+
+  @media only screen and (max-width: 768px) {
+
+    .signup {
+    padding: 20px;
+    gap: 40px;
+    height: auto;
+    }
+    
+    .signup__logo > a > img {
+    width: 70px;
+    }
+    
+    .signup__language {
+    font-size: 13px;
+    }
+    
+    .signup__info {
+    margin: 0 auto;
+    min-width: auto;
+    text-align: center;
+    }
+    
+    .signup__info > h1 {
+    font-size: 30px;
+    margin-left: 0;
+    }
+    
+    .signup__form > label {
+    font-size: 13px;
+    padding-left: 10px;
+    }
+    
+    .signup__form > input {
+    padding: 10px 15px;
+    font-size: 14px;
+    }
+    
+    .signup__divider > hr {
+    width: 30%;
+    }
+    
+    .signup__divider > span {
+    font-size: 14px;
+    }
+    
+    }
+    
+    @media only screen and (max-width: 468px) {
+    
+    .signup {
+    padding: 15px;
+    gap: 30px;
+    }
+    
+    .signup__logo > a > img {
+    width: 50px;
+    }
+    
+    .signup__language {
+      font-size: 12px;
+      }
+  
+    .signup__info > h1 {
+    font-size: 25px;
+    }
+    
+    .signup__form > label {
+    font-size: 12px;
+    }
+    
+    .signup__form > input {
+    padding: 8px 12px;
+    font-size: 13px;
+    }
+    
+    .signup__divider > hr {
+    width: 20%;
+    }
+    
+    .signup__divider > span {
+    font-size: 13px;
+    }
+    
+    }

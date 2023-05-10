@@ -88,13 +88,56 @@
 }
 
 @media (max-width: 768px) {
+    .teslaAccount__header {
+    padding: 7px 10px;
+    }
+    
+    .teslaAccount__logo > a > img {
+    width: 60px;
+    }
+    
+    .teslaAccount__menu {
+    display: block;
+    }
+    
+    .teslaAccount__info {
+    padding: 30px;
+    }
+    
+    .teslaAccount__person > h4 {
+    font-size: large;
+    }
+    
     .teslaAccount__infoRight > :not(:last-child) {
         display: none;
       }
-}
-  
-@media (max-width: 468px) {
-    .teslaAccount__person > h4 {
-        font-size: 18px;
+    
+    .teslaAccount__car {
+    padding-bottom: 20px;
     }
-}
+    }
+    
+    @media (max-width: 468px) {
+    .teslaAccount__header {
+    padding: 7px 5px;
+    padding-top: 10px;
+    }
+    
+    .teslaAccount__logo > a > img {
+    width: 40px;
+    }
+    
+    .teslaAccount__info {
+    padding: 20px;
+    padding-bottom: 10px;
+    }
+    
+    .teslaAccount__person > h4 {
+    font-size: medium;
+    }
+    
+    .teslaAccount__car {
+    gap: 10px;
+    padding-bottom: 10px;
+    }
+    }

@@ -41,30 +41,35 @@
     color: #3e6be2;
     cursor: pointer;
 }
-
-@media (max-width: 768px) {
-    .car__info {
-        visibility: hidden;
+@media screen and (max-width: 768px) {
+    .car__model {
+        font-size: x-large;
+        margin-bottom: 4px;
     }
     
-}
-
-@media (max-width: 600px) {
-    .car__model {
-        font-size: 24px;      
-    }
     .car__actions > button {
         width: 180px;
+        margin-bottom: 20px;
     }
 }
 
-@media (max-width: 468px) {
+@media screen and (max-width: 468px) {
     .car__model {
-        font-size: 24px;    
-        padding-top: 52px;  
+        font-size: large;
+        margin-top: -20px;
     }
+    
+    .car__actions {
+        margin-top: 10px;
+    }
+    
     .car__actions > button {
-        width: 180px;
-        margin-top: 24px;
+        width: 150px;
+        margin-bottom: 10px;
+        font-size: 10px;
+    }
+    
+    .car__info {
+        font-size: x-small;
     }
 }

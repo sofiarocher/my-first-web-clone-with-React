@@ -82,3 +82,87 @@
     color: black;
     opacity: 0.8;
 }
+
+@media screen and (min-width: 768px) {
+    .headerBlock {
+      height: 100vh;
+      background-position: center center;
+      display: grid;
+      place-items: center;
+    }
+  
+    .headerBlock__info {
+      height: 360px;
+      margin-bottom: 30px;
+    }
+  
+    .headerBlock__infoText {
+      text-align: center;
+    }
+  
+    .headerBlock__infoText > h1 {
+      font-size: 38px;
+    }
+  
+    .headerBlock__infoText > h4 {
+      font-size: 15px;
+    }
+  
+    .headerBlock__actions {
+      margin-top: 60px;
+    }
+  
+    .headerBlock__actions > button {
+      width: 260px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      border-radius: 50px;
+      font-weight: 600;
+      outline: none;
+    }
+  
+    .headerBlock__buttonPrimary {
+      opacity: 0.9;
+    }
+  
+    .headerBlock__buttonSecondary {
+      opacity: 0.8;
+    }
+  }
+ 
+  @media screen and (max-width: 767px) {
+    .headerBlock {
+      height: 100vh;
+      background-position: center center;
+    }
+  
+    .headerBlock__info {
+      margin-bottom: 30px;
+    }
+  
+    .headerBlock__infoText > h1 {
+      font-size: 28px;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+  
+    .headerBlock__infoText > h4 {
+      font-size: 14px;
+    }
+  
+    .headerBlock__actions {
+      margin-top: 40px;
+      flex-direction: column;
+    }
+  
+    .headerBlock__actions > button {
+      width: 100%;
+      max-width: 300px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+    
+    .headerBlock__buttonSecondary {
+      margin-top: 15px;
+    }
+  }
